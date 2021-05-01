@@ -1,9 +1,14 @@
 import React from 'react'
+import {Text, Button, View} from 'react-native'
 
-export default function UserListItem() {
+const UserListItem = ({voornaam, naam, email}: any) => {
     return (
-        <div>
-            
-        </div>
+        <View>
+            <Text>{voornaam} {naam}</Text>
+            <Text>{email}</Text>
+        </View>
+        
     )
 }
+
+export default UserListItem;
