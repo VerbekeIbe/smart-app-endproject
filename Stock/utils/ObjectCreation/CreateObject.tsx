@@ -31,7 +31,6 @@ export const createLeningObject = (Data : any) : Lening => {
         materiaal: createMateriaalObject(Data.materiaal),
         lenerId: Data.lenerId,
         lener: createLenerObject(Data.lener)
-
     }
 } 
 
