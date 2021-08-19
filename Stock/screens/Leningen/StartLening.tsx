@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, TextInput, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import Slider from '@react-native-community/slider';
 import { getData, postData } from '../../utils/DataHandler'
 import { createLenerObject } from '../../utils/ObjectCreation/CreateObject'
 import Lener from '../../models/Lener';
@@ -16,7 +17,7 @@ export default function StartLening(object: any) {
     const [loading, setLoading] = useState<boolean>(false);
     const [leners, setLeners] = useState<Lener[]>([]);
     const [selectedUser, setSelectedUser] = useState("");
-    const [hoeveelheid, setHoeveelheid] = useState("");
+    const [toLend, setToLend] = useState("0");
 
     const getUsers = async function () {
         const endpoint = "leners"
@@ -35,12 +36,13 @@ export default function StartLening(object: any) {
     useEffect(() => {
         setLoading(true)
         getUsers();
+        console.log(object.route.params.stock)
     }, []);
 
     const submit = () => {
         const endpoint = "lening"
         const requestBody = {
-            hoeveelheid: hoeveelheid,
+            hoeveelheid: toLend,
             materiaalId: object.route.params.materiaalId,
             lenerId: selectedUser
         }
@@ -68,10 +70,22 @@ export default function StartLening(object: any) {
             </Picker>
 
             <Text style={font.title}>Hoeveel leen je?</Text>
-            <TextInput keyboardType="numeric" onChangeText={text => setHoeveelheid(text.replace(/[^0-9]/g, ''))} value={hoeveelheid} style={form.input} />
+            {/* <TextInput keyboardType="numeric" onChangeText={text => setToLend(text.replace(/[^0-9]/g, ''))} value={toLend} style={form.input} /> */}
+            <Slider
+                onValueChange={value => setToLend(value.toString())}
+                step={1}
+                // style={{ width: 200, height: 40 }}
+                minimumValue={0}
+                maximumValue={object.route.params.stock}
+                minimumTrackTintColor="#FFFFFF"
+                maximumTrackTintColor="#000000"
+            />
+            <Text>
+                {toLend}
+            </Text>
 
-            <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
-            <TextButton title="Terug" onPress={() => object.navigation.navigate('Materiaal List')} style={buttons.back} />
+                <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
+                <TextButton title="Terug" onPress={() => object.navigation.navigate('Materiaal List')} style={buttons.back} />
         </View>
-    )
+            )
 }
