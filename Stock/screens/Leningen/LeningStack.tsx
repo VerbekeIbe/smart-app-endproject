@@ -6,16 +6,18 @@ import LeningList from './LeningList';
 
 const Stack = createStackNavigator();
 
-export default function LeningStack({navigation}: any) {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name='Lening List' component={LeningList} options={{ title: 'Leningen', cardStyle:{backgroundColor: colors.alpha },headerStyle:
-            {backgroundColor: colors.headerbg},
-          headerTintColor: colors.light,
-          headerTitleStyle: {
-            fontWeight: '600',
-          } }}/>
+export default function LeningStack({ navigation }: any) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Lening List' component={LeningList} options={{
+        title: 'Leningen', cardStyle: { backgroundColor: colors.alpha }, headerStyle:
+          { backgroundColor: colors.headerbg },
+        headerTintColor: colors.light,
+        headerTitleStyle: {
+          fontWeight: '600',
+        }
+      }} />
 
-        </Stack.Navigator>
-    )
+    </Stack.Navigator>
+  )
 }

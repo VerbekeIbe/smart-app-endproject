@@ -5,7 +5,9 @@ import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import { buttons, font, form } from '../../styles/generic'
+import { font } from '../../styles/generic'
+import { buttons } from '../../styles/components/buttons';
+import { form } from '../../styles/components/form';
 
 
 const UpdateMateriaal = (object: any) => {
@@ -35,7 +37,7 @@ const UpdateMateriaal = (object: any) => {
         const endpoint = "materiaal"
         const id = object.route.params.materiaalId
 
-        deleteData({endpoint, id})
+        deleteData({ endpoint, id })
         object.navigation.navigate("Materiaal List");
     }
 
@@ -44,13 +46,13 @@ const UpdateMateriaal = (object: any) => {
     return (
         <View style={form.basic}>
             <Text style={font.title}>Naam:</Text>
-            <TextInput onChangeText={text => setName(text)} value={name} style={form.input}  />
+            <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
             <Text style={font.title}>Categorie:</Text>
             <Picker
                 selectedValue={categorie}
                 onValueChange={itemValue => setCategorie(itemValue)}
                 style={form.input}
-                >
+            >
 
                 <Picker.Item label="Groot" value="Groot" />
                 <Picker.Item label="Klein" value="Klein" />
@@ -61,14 +63,14 @@ const UpdateMateriaal = (object: any) => {
             <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock} style={form.input} />
 
             <Text style={font.title}>Drempel:</Text>
-            <TextInput onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold} style={form.input}/>
+            <TextInput onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold} style={form.input} />
 
 
-            <IconButton  onPress={() => submit()} iconName="check" size="600" color="white" style={buttons.submit}/>
+            <IconButton onPress={() => submit()} iconName="check" size="600" color="white" style={buttons.submit} />
 
-            <View style={{flexDirection:"row", flex:1, justifyContent:'space-between' }}>
-            <TextButton title="Terug" onPress={() => object.navigation.navigate('Materiaal List')}/>
-            <TextButton title="Verwijderen" onPress={() => deleteMateriaal()}/>
+            <View style={{ flexDirection: "row", flex: 1, justifyContent: 'space-between' }}>
+                <TextButton title="Terug" onPress={() => object.navigation.navigate('Materiaal List')} />
+                <TextButton title="Verwijderen" onPress={() => deleteMateriaal()} />
             </View>
         </View>
     )

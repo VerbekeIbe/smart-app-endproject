@@ -1,6 +1,9 @@
 import React from 'react'
 import {Text, Button, View, StyleSheet} from 'react-native'
-import { buttons, list, font, info } from '../styles/generic'
+import { font } from '../styles/generic'
+import { buttons } from '../styles/components/buttons'
+import { list } from '../styles/components/list'
+import { info } from '../styles/utils/info'
 import TextButton from '../components/TextButton'
 import IconButton from '../components/IconButton'
 

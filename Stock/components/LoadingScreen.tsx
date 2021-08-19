@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { loading } from '../styles/generic'
+import { loading } from '../styles/utils/loading';
 import colors from '../styles/colors'
 
 

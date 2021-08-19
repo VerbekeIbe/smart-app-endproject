@@ -3,7 +3,9 @@ import { Text, TextInput, View, Button } from 'react-native'
 import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
-import {form, font, buttons} from '../../styles/generic'
+import { font } from '../../styles/generic'
+import { form } from '../../styles/generic'
+import { buttons } from '../../styles/components/buttons'
 
 
 const UpdateUser = (object: any) => {
@@ -22,7 +24,7 @@ const UpdateUser = (object: any) => {
 
         console.log(requestBody)
         console.log(endpoint)
-        postData({endpoint, requestBody})
+        postData({ endpoint, requestBody })
 
         object.navigation.navigate("Users");
     };
@@ -31,7 +33,7 @@ const UpdateUser = (object: any) => {
         const endpoint = "leners"
         const id = object.route.params.lenerId
 
-        deleteData({endpoint, id})
+        deleteData({ endpoint, id })
         object.navigation.navigate("Users");
     }
 
@@ -40,17 +42,17 @@ const UpdateUser = (object: any) => {
     return (
         <View style={form.basic}>
             <Text style={font.title}>Naam:</Text>
-            <TextInput onChangeText={text => setName(text)} value={name} style={form.input}/>
+            <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
             <Text style={font.title}>Voornaam:</Text>
             <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input} />
             <Text style={font.title}>Email:</Text>
-            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input}/>
+            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input} />
 
-            <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit}/>
+            <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
 
-            <View style={{flexDirection:"row", justifyContent:'space-between'}}>
-            <TextButton title="Terug" onPress={() => object.navigation.navigate('Users')} />
-            <TextButton title="Verwijderen" onPress={() => deleteUser()} />
+            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+                <TextButton title="Terug" onPress={() => object.navigation.navigate('Users')} />
+                <TextButton title="Verwijderen" onPress={() => deleteUser()} />
             </View>
         </View>
     )

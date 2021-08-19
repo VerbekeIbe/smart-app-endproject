@@ -4,7 +4,8 @@ import { postEndLening } from '../utils/DataHandler'
 import { list } from '../styles/generic'
 import TextButton from '../components/TextButton'
 import IconButton from '../components/IconButton'
-import { buttons, font } from '../styles/generic'
+import { font } from '../styles/generic'
+import { buttons } from '../styles/generic'
 
 
 const LeningListItem = ({ object }: any) => {

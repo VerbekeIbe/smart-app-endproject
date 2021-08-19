@@ -1,64 +1,65 @@
-import React, {useState, useCallback} from 'react'
+import React, { useState, useCallback } from 'react'
 import { ActivityIndicator, View, RecyclerViewBackedScrollViewBase, Button, ScrollView } from 'react-native'
-import { useFocusEffect} from '@react-navigation/native'
+import { useFocusEffect } from '@react-navigation/native'
 import UserListItem from '../../components/UserListItem'
 import Lener from '../../models/Lener'
 import LoadingScreen from '../../components/LoadingScreen';
-import {createLenerObject} from '../../utils/ObjectCreation/CreateObject'
+import { createLenerObject } from '../../utils/ObjectCreation/CreateObject'
 import { getData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 
-import { buttons, font } from '../../styles/generic'
+import { font } from '../../styles/generic'
+import { buttons } from '../../styles/components/buttons'
 
 const URL = 'http://localhost:5000/leners';
 
 
 
-const UserList = ({navigation}: any) => {
+const UserList = ({ navigation }: any) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Lener[]>([]);
 
-    const getList = async function (){
+    const getList = async function () {
         const endpoint = "leners"
         const categorie = ""
-        let rawData = await getData({endpoint, categorie})
-            const userList : Lener[] = [];
-            for(let user of rawData){
-                userList.push(createLenerObject(user))
-            }
-            setData(userList);
-    
-            setLoading(false);
-        
+        let rawData = await getData({ endpoint, categorie })
+        const userList: Lener[] = [];
+        for (let user of rawData) {
+            userList.push(createLenerObject(user))
+        }
+        setData(userList);
+
+        setLoading(false);
+
     };
     useFocusEffect(
         useCallback(() => {
-          setLoading(true)
-          getList()
+            setLoading(true)
+            getList()
         }, [])
-      );
+    );
 
 
-    if(loading) return (
-        <LoadingScreen/>
+    if (loading) return (
+        <LoadingScreen />
     )
-     else if (data.length < 1) return (
-         
-        <View style={{flexDirection:'row',flex:1, justifyContent:'center', alignItems:'center'}}>
-        Geen users gevonden
+    else if (data.length < 1) return (
+
+        <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            Geen users gevonden
         </View>
-        
-     )
-     else return (
-            <ScrollView>
-                <View style={{marginTop: 20}}>
-                { data.map((l: Lener) => (
-                    <UserListItem key={l.lenerId} object={l} navigation={navigation}/>
+
+    )
+    else return (
+        <ScrollView>
+            <View style={{ marginTop: 20 }}>
+                {data.map((l: Lener) => (
+                    <UserListItem key={l.lenerId} object={l} navigation={navigation} />
                 ))}
 
-            <TextButton title="Gebruiker Toevoegen" onPress={() => {navigation.navigate('Add User')}} style={buttons.add}/>
+                <TextButton title="Gebruiker Toevoegen" onPress={() => { navigation.navigate('Add User') }} style={buttons.add} />
             </View>
-            </ScrollView>   
+        </ScrollView>
     );
 };
 

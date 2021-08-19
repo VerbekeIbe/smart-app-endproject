@@ -1,6 +1,7 @@
 import React from 'react'
 import {Text, Button, View, StyleSheet} from 'react-native'
-import { list, font } from '../styles/generic'
+import { font } from '../styles/generic'
+import  { list } from '../styles/components/list'
 
 const ShoppingListItem = ({object}: any) => {
     return (

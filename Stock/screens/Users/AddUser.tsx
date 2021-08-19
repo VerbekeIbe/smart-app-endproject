@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, Button } from 'react-native';
 import { postData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import {form, buttons, font} from '../../styles/generic'
+import { font } from '../../styles/generic'
+import { form } from '../../styles/components/form';
+import { buttons } from '../../styles/components/buttons';
 
 
 export default function AddUser(object: any) {
@@ -22,7 +24,7 @@ export default function AddUser(object: any) {
 
         console.log(requestBody)
         console.log(endpoint)
-        postData({endpoint, requestBody})
+        postData({ endpoint, requestBody })
         object.navigation.navigate("Users");
     };
 
@@ -31,18 +33,18 @@ export default function AddUser(object: any) {
             <Text style={font.title}>
                 Naam:
             </Text>
-            <TextInput onChangeText={text => setName(text)} value={name} style={form.input}/>
+            <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
             <Text style={font.title}>
                 Voornaam:
             </Text>
-            <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input}/>
+            <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input} />
             <Text style={font.title}>
                 Email:
             </Text>
-            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input}/>
+            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input} />
 
             <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
-            <TextButton title="Terug" onPress={() => object.navigation.navigate('Users') } />
+            <TextButton title="Terug" onPress={() => object.navigation.navigate('Users')} />
         </View>
     )
 }

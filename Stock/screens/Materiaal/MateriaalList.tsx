@@ -9,7 +9,8 @@ import { useFocusEffect} from '@react-navigation/native'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import { buttons, font } from '../../styles/generic'
+import { font } from '../../styles/generic'
+import { buttons } from '../../styles/components/buttons';
 
 
 
