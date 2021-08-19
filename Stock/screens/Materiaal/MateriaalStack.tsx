@@ -1,10 +1,14 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import MateriaalList from './MateriaalList';
-import UpdateMateriaal from './UpdateMateriaal'
+import EditMateriaal from './EditMateriaal';
 import AddMateriaal from './AddMateriaal'
 import StartLening from '../Leningen/StartLening'
 import colors from '../../styles/colors'
+import BoughtMateriaal from './BoughtMateriaal';
+import LostMateriaal from './LostMateriaal';
+import UpdateMateriaal from './UpdateMateriaal';
+
 
 
 
@@ -30,6 +34,31 @@ export default function MateriaalStack() {
           fontWeight: '600',
         }
       }} />
+      <Stack.Screen name='Edit Materiaal' component={EditMateriaal} options={{
+        title: 'Materiaal bewerken', cardStyle: { backgroundColor: colors.alpha }, headerStyle:
+          { backgroundColor: colors.headerbg },
+        headerTintColor: colors.light,
+        headerTitleStyle: {
+          fontWeight: '600',
+        }
+      }} />
+      <Stack.Screen name='Bought Materiaal' component={BoughtMateriaal} options={{
+        title: 'Materiaal gekocht', cardStyle: { backgroundColor: colors.alpha }, headerStyle:
+          { backgroundColor: colors.headerbg },
+        headerTintColor: colors.light,
+        headerTitleStyle: {
+          fontWeight: '600',
+        }
+      }} />
+      <Stack.Screen name='Lost Materiaal' component={LostMateriaal} options={{
+        title: 'Materiaal kwijt/stuk', cardStyle: { backgroundColor: colors.alpha }, headerStyle:
+          { backgroundColor: colors.headerbg },
+        headerTintColor: colors.light,
+        headerTitleStyle: {
+          fontWeight: '600',
+        }
+      }} />
+      
       <Stack.Screen name='Add Materiaal' component={AddMateriaal} options={{
         title: 'Materiaal toevoegen', cardStyle: { backgroundColor: colors.alpha }, headerStyle:
           { backgroundColor: colors.headerbg },

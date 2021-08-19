@@ -10,7 +10,8 @@ import IconButton from '../components/IconButton'
 
 
 const MateriaalListItem = ({object, navigation}: any) => {
-const edit = (data: any) => {
+const update = (data: any) => {
+    console.log(data);
     navigation.navigate('Update Materiaal',data);
     }
 
@@ -33,7 +34,7 @@ const lenen = (data: any) => {
                 <Text style={font.normal}>{object.categorie}</Text>
                 </View>
                 <View>
-                <IconButton  onPress={() => {edit(object)}} iconName="edit" size="25" color="white" style={buttons.neutral}/>
+                <IconButton  onPress={() => {update(object)}} iconName="edit" size="25" color="white" style={buttons.neutral}/>
                 </View>
                 </View>
             </View>
