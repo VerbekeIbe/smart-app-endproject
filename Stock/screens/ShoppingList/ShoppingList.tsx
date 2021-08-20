@@ -15,12 +15,12 @@ export default function ShoppingList({navigation}: any) {
     const getList = async function () {
         const endpoint = "materiaal/shoppinglist"
         let rawData = await getShoppingList({ endpoint})
-        const materiaalList: Materiaal[] = [];
+        const shoppingList: Materiaal[] = [];
         if(rawData != []){
             for (let object of rawData) {
-                materiaalList.push(createMateriaalObject(object))
+                shoppingList.push(createMateriaalObject(object))
             }
-            setData(materiaalList);
+            setData(shoppingList);
         }
     
         setLoading(false);

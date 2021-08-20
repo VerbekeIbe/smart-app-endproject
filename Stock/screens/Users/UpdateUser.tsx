@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, TextInput, View, Button } from 'react-native'
+import { Text, TextInput, View, Button, Alert } from 'react-native'
 import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
@@ -21,13 +21,27 @@ const UpdateUser = (object: any) => {
             voornaam: firstName,
             email: email
         }
-
         console.log(requestBody)
         console.log(endpoint)
         postData({ endpoint, requestBody })
 
         object.navigation.navigate("Users");
     };
+
+
+    const alertDeleteUser = () =>
+    Alert.alert(
+      "Gebruiker verwijderen",
+      "Weet je het zeker? Deze actie is onomkeerbaar.",
+      [
+        {
+          text: "Annuleren",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Verwijderen", onPress: () => deleteUser() }
+      ]
+    );
 
     const deleteUser = () => {
         const endpoint = "leners"
@@ -46,12 +60,12 @@ const UpdateUser = (object: any) => {
             <Text style={font.title}>Voornaam:</Text>
             <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input} />
             <Text style={font.title}>Email:</Text>
-            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input} />
+            <TextInput keyboardType="email-address" onChangeText={text => setEmail(text)} value={email} style={form.input} />
 
             <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
 
             <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
-                <TextButton title="Verwijderen" onPress={() => deleteUser()} />
+                <TextButton title="Verwijderen" onPress={() => alertDeleteUser()} />
             </View>
         </View>
     )

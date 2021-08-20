@@ -41,7 +41,7 @@ export default function AddUser(object: any) {
             <Text style={font.title}>
                 Email:
             </Text>
-            <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input} />
+            <TextInput keyboardType="email-address" onChangeText={text => setEmail(text)} value={email} style={form.input} />
 
             <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
         </View>

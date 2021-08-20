@@ -40,6 +40,20 @@ const EditMateriaal = ({route, navigation} : any) => {
         navigation.navigate("Materiaal List");
     };
 
+    const alertDeleteMateriaal = () =>
+    Alert.alert(
+      "Materiaal verwijderen",
+      "Weet je het zeker? Deze actie is onomkeerbaar.",
+      [
+        {
+          text: "Annuleren",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Verwijderen", onPress: () => deleteMateriaal() }
+      ]
+    );
+
     const deleteMateriaal = () => {
         const endpoint = "materiaal"
         const id = route.params.materiaalId
@@ -68,17 +82,16 @@ const EditMateriaal = ({route, navigation} : any) => {
                 <Picker.Item label="Keuken" value="Keuken" />
             </Picker>
             <Text style={font.title}>Hoeveelheid:</Text>
-            <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock} style={form.input} />
+            <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock.toString()} style={form.input} />
 
             <Text style={font.title}>Drempel:</Text>
-            <TextInput onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold} style={form.input} />
+            <TextInput keyboardType="numeric" onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold.toString()} style={form.input} />
 
 
             <IconButton onPress={() => submit()} iconName="check" size="600" color="white" style={buttons.submit} />
 
-            <View style={{ flexDirection: "row", flex: 1, justifyContent: 'space-between' }}>
-                <TextButton title="Terug" onPress={() => navigation.navigate('Materiaal List')} />
-                <TextButton title="Verwijderen" onPress={() => deleteMateriaal()} />
+            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+                <TextButton title="Verwijderen" onPress={() => alertDeleteMateriaal()} />
             </View>
         </View>
         </>

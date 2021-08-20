@@ -1,19 +1,31 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TextButton from '../../components/TextButton'
 import { postEndLening } from '../../utils/DataHandler';
 
 const EndLening = ({ route, navigation }: any) => {
+    const [kwijt, setKwijt] = useState<boolean>(false);
+
+
+
     const closeLening = () => {
 
         const endpoint = "lening/close"
         const id = route.params.leningId
         postEndLening({ endpoint, id })
-        navigation.navigate('Lening List');
+        if(!kwijt){
+            navigation.navigate('Lening List');
+        }
+        
     }
 
     const editMateriaal = () => {
-        navigation.navigate('Lost Materiaal',route.params.materiaal)
+        setKwijt(true);
+        
+        navigation.navigate('Lost Materiaal',route.params.materiaal);
+        closeLening();
+
+
     }
 
     useEffect(() => {
