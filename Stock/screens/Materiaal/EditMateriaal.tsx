@@ -5,7 +5,7 @@ import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import { font } from '../../styles/generic'
+import { font } from '../../styles/font';
 import { buttons } from '../../styles/components/buttons';
 import { form } from '../../styles/components/form';
 

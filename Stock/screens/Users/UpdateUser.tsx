@@ -3,8 +3,8 @@ import { Text, TextInput, View, Button } from 'react-native'
 import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
-import { font } from '../../styles/generic'
-import { form } from '../../styles/generic'
+import { font } from '../../styles/font';
+import { form } from '../../styles/components/form';
 import { buttons } from '../../styles/components/buttons'
 
 
@@ -51,7 +51,6 @@ const UpdateUser = (object: any) => {
             <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
 
             <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
-                <TextButton title="Terug" onPress={() => object.navigation.navigate('Users')} />
                 <TextButton title="Verwijderen" onPress={() => deleteUser()} />
             </View>
         </View>

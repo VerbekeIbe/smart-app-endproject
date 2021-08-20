@@ -5,7 +5,7 @@ import Lener from '../models/Lener'
 import UpdateUser from '../screens/Users/UpdateUser'
 import IconButton from '../components/IconButton'
 
-import { font } from '../styles/generic'
+import { font } from '../styles/font';
 import { buttons } from '../styles/components/buttons'
 import { list } from '../styles/components/list'
 

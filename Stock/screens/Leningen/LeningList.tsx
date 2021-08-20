@@ -6,18 +6,20 @@ import LeningListItem from '../../components/LeningListItem';
 import Lening from '../../models/Lening';
 import { createLeningObject } from '../../utils/ObjectCreation/CreateObject';
 import LoadingScreen from '../../components/LoadingScreen';
-import { font } from '../../styles/generic';
+import { font } from '../../styles/font';
+import { getLeningen } from '../../utils/DataHandler';
 
 
-const URL = "http://localhost:5000/lening/pending";
+const endpoint = "http://localhost:5000/lening/pending";
 
-const LeningList = () => {
+const LeningList = ({navigation}: any) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Lening[]>([]);
 
 
     const getList = async function () {
-        let rawData = await fetch(URL).then((response) => response.json())
+        const endpoint = "lening/pending";
+        let rawData = await getLeningen({endpoint});
         const leningList: Lening[] = [];
         for (let user of rawData) {
             leningList.push(createLeningObject(user))
@@ -46,7 +48,7 @@ const LeningList = () => {
             <View style={{ marginTop: 20 }}>
 
                 {data.map((l: Lening) => (
-                    <LeningListItem key={l.leningId} object={l} />
+                    <LeningListItem key={l.leningId} object={l} navigation={navigation}/>
                 ))}
             </View>
 

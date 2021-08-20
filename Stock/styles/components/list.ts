@@ -16,7 +16,7 @@ export const list = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.20,
-        shadowRadius: 13.97,
+        shadowRadius: 14,
 
         elevation: 21,
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, Button, View, StyleSheet} from 'react-native'
-import { font } from '../styles/generic'
+import { font } from '../styles/font';
 import { buttons } from '../styles/components/buttons'
 import { list } from '../styles/components/list'
 import { info } from '../styles/utils/info'
@@ -41,7 +41,7 @@ const lenen = (data: any) => {
             
             
             {/* <Button title="Edit" onPress={() => {edit(object)}} /> */}
-            <View style={{ flexDirection:"row", margin:"auto", padding:"2", justifyContent:"space-evenly"}}>
+            <View style={{ flexDirection:"row", margin:"auto", padding:2, justifyContent:"space-evenly"}}>
             
             <TextButton title="Lenen" onPress={() => {lenen(object)}} style={buttons.alternative}/>
             </View>

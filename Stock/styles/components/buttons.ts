@@ -15,7 +15,7 @@ export const buttons = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.15,
-        shadowRadius: 13.97,
+        shadowRadius: 14,
 
         elevation: 21,
 
@@ -32,7 +32,7 @@ export const buttons = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 13.97,
+        shadowRadius: 14,
 
         elevation: 21,
     },
@@ -60,7 +60,7 @@ export const buttons = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.20,
-        shadowRadius: 13.97,
+        shadowRadius: 14,
 
         elevation: 21,
     },
@@ -68,7 +68,7 @@ export const buttons = StyleSheet.create({
         backgroundColor: colors.headerbg,
         paddingHorizontal: 12,
         marginHorizontal: 25,
-        padding: 8.5,
+        padding: 8,
         borderRadius: 6,
         margin: "auto"
     },
@@ -86,7 +86,7 @@ export const buttons = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.20,
-        shadowRadius: 13.97,
+        shadowRadius: 14,
 
         elevation: 21,
     },

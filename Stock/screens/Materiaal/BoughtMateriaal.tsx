@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Text, TextInput } from 'react-native'
-import Slider from '@react-native-community/slider';
 import TextButton from '../../components/TextButton';
 import { postData } from '../../utils/DataHandler';
 

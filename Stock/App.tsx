@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { NavigationContainer, defaultTheme } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator} from '@react-navigation/stack'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -13,7 +13,7 @@ import colors from './styles/colors'
 import LeningStack from './screens/Leningen/LeningStack'
 import MateriaalStack from './screens/Materiaal/MateriaalStack';
 import UserStack from './screens/Users/UserStack';
-import ShoppingStack from './screens/Materiaal/ShoppingStack';
+import ShoppingStack from './screens/ShoppingList/ShoppingStack';
 
 
 const Stack =  createStackNavigator();
@@ -52,7 +52,7 @@ export default function App() {
         <Tabs.Screen name="Materiaal" component={MateriaalStack}/>
         <Tabs.Screen name="Users" component={UserStack} options={{ title: 'Gebruikers' }}/>
         <Tabs.Screen name="Leningen" component={LeningStack}/>
-        <Tabs.Screen name="Shopping List" component={ShoppingStack} options={{ title: 'Boodschappenlijst' }}/>
+        <Tabs.Screen name="Shopping List" component={ShoppingStack} options={{ title: 'Boodschappen' }}/>
       </Tabs.Navigator>  
        </NavigationContainer>
   )

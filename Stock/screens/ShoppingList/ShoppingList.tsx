@@ -1,27 +1,28 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import ShoppingListItem from '../../components/ShoppingListItem';
 import Materiaal from '../../models/Materiaal';
-import { getData } from '../../utils/DataHandler';
+import { getData, getShoppingList } from '../../utils/DataHandler';
 import { createMateriaalObject } from '../../utils/ObjectCreation/CreateObject';
 import LoadingScreen from '../../components/LoadingScreen';
-import { font } from '../../styles/generic';
+import { font } from '../../styles/font';
 
-export default function ShoppingList() {
+export default function ShoppingList({navigation}: any) {
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Materiaal[]>([]);
 
     const getList = async function () {
         const endpoint = "materiaal/shoppinglist"
-        const categorie = ""
-        let rawData = await getData({ endpoint, categorie })
+        let rawData = await getShoppingList({ endpoint})
         const materiaalList: Materiaal[] = [];
-        for (let object of rawData) {
-            materiaalList.push(createMateriaalObject(object))
+        if(rawData != []){
+            for (let object of rawData) {
+                materiaalList.push(createMateriaalObject(object))
+            }
+            setData(materiaalList);
         }
-        setData(materiaalList);
-
+    
         setLoading(false);
 
     };
@@ -46,14 +47,14 @@ export default function ShoppingList() {
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-            We hebben niets tekort voor het moment! Good job boys (and girls)
+           <Text> We hebben niets tekort voor het moment! Good job! </Text>
         </View>
     )
     else return (
         <ScrollView>
             <View style={{ marginTop: 20 }}>
                 {data.map((l: Materiaal) => (
-                    <ShoppingListItem key={l.materiaalId} object={l} />
+                    <ShoppingListItem key={l.materiaalId} object={l} navigation={navigation} />
                 ))}
             </View>
         </ScrollView>

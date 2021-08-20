@@ -15,7 +15,7 @@ import UpdateMateriaal from './UpdateMateriaal';
 
 const Stack = createStackNavigator();
 
-export default function MateriaalStack() {
+export default function MateriaalStack({ navigation }: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Materiaal List' component={MateriaalList} options={{

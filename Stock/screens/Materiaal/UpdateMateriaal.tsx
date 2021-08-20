@@ -34,8 +34,8 @@ const UpdateMateriaal = ({ navigation, route }: any) => {
     return (
         <>
             <TextButton title="Ik heb meer aangekocht" onPress={() => more() } />
-            <TextButton title="Er is iets weg." onPress={() => { lost()}} />
-            <TextButton title="Bewerken" onPress={() => { edit() }} />
+            <TextButton title="Er is iets weg." onPress={() =>  lost()} />
+            <TextButton title="Bewerken" onPress={() =>  edit() } />
         </>
     )
 }

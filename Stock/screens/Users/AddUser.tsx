@@ -4,7 +4,7 @@ import { postData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import { font } from '../../styles/generic'
+import { font } from '../../styles/font';
 import { form } from '../../styles/components/form';
 import { buttons } from '../../styles/components/buttons';
 
@@ -44,7 +44,6 @@ export default function AddUser(object: any) {
             <TextInput onChangeText={text => setEmail(text)} value={email} style={form.input} />
 
             <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
-            <TextButton title="Terug" onPress={() => object.navigation.navigate('Users')} />
         </View>
     )
 }

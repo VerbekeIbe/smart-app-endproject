@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { ActivityIndicator, View, RecyclerViewBackedScrollViewBase, Button, ScrollView } from 'react-native'
+import { ActivityIndicator, View, Text, RecyclerViewBackedScrollViewBase, Button, ScrollView } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import UserListItem from '../../components/UserListItem'
 import Lener from '../../models/Lener'
@@ -8,7 +8,7 @@ import { createLenerObject } from '../../utils/ObjectCreation/CreateObject'
 import { getData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
 
-import { font } from '../../styles/generic'
+import { font } from '../../styles/font';
 import { buttons } from '../../styles/components/buttons'
 
 const URL = 'http://localhost:5000/leners';
@@ -46,7 +46,8 @@ const UserList = ({ navigation }: any) => {
     else if (data.length < 1) return (
 
         <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            Geen users gevonden
+            
+            <Text style={font.title}> Geen gebruikers gevonden</Text>
         </View>
 
     )

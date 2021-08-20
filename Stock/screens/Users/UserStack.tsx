@@ -9,7 +9,7 @@ import UpdateUser from './UpdateUser';
 
 const Stack = createStackNavigator();
 
-export default function UserStack() {
+export default function UserStack({ navigation }: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Users" component={UserList} options={{

@@ -8,7 +8,7 @@ import Lener from '../../models/Lener';
 import TextButton from '../../components/TextButton'
 import IconButton from '../../components/IconButton'
 
-import { font } from '../../styles/generic'
+import { font } from '../../styles/font'
 import { form } from '../../styles/components/form';
 import { buttons } from '../../styles/components/buttons';
 import LoadingScreen from '../../components/LoadingScreen';
