@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { NavigationContainer} from '@react-navigation/native'
 import { createStackNavigator} from '@react-navigation/stack'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'

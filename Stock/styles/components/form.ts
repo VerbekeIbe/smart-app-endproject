@@ -11,12 +11,31 @@ export const form = StyleSheet.create({
     input: {
         fontSize: 16,
         fontWeight: '500',
-        marginTop: 10,
+        marginTop: 2,
         marginBottom: 10,
-        
-        height: 40,
+        borderColor: neutral[900],
+        borderStyle: 'solid',
+        borderWidth: 1,
         borderRadius: 5,
+        
+        height: 50,
+        
+        padding: 10,
+        backgroundColor: neutral[100]
+    },
+    input_error: {
+        fontSize: 16,
+        fontWeight: '500',
+        marginTop: 2,
+        marginBottom: 10,
+        borderColor: theme['gamma'],
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 5,
+        
+        height: 50,
+        
         padding: 10,
         backgroundColor: neutral[300]
-    }
+    },
 });

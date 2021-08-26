@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import {neutral, theme} from "../colors";
 
 export const loading = StyleSheet.create({
     neutral: {

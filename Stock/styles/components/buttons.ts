@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import {neutral, theme} from "../colors";
+import { theme } from "../colors";
 
 export const buttons = StyleSheet.create({
     edit: {
@@ -19,50 +19,25 @@ export const buttons = StyleSheet.create({
 
         elevation: 21,
 
-    }, filter: {
-        backgroundColor: theme['beta'],
-        padding: 10,
-        borderRadius: 25,
-        marginVertical: 10,
-        marginHorizontal: 4,
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 14,
-
-        elevation: 21,
     },
     delete: {
         backgroundColor: theme['gamma'],
-        padding: 7,
+        paddingHorizontal: 12,
+        marginHorizontal: 25,
+        padding: 8,
         borderRadius: 6,
-        margin: "auto"
-    },
-    submit: {
-        backgroundColor: theme['alpha'],
-        paddingHorizontal: 80,
-        paddingVertical: 20,
-
+        margin: "auto",
+        textAlign: 'center',
+        alignItems: 'center',
+    },delete_form: {
+        backgroundColor: theme['gamma'],
+        paddingHorizontal: 12,
+        marginHorizontal: 12,
+        padding: 8,
         borderRadius: 6,
-        display: 'flex',
-        alignSelf: 'center',
-
-        marginTop: 40,
-        marginBottom: 40,
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        shadowOpacity: 0.20,
-        shadowRadius: 14,
-
-        elevation: 21,
+        margin: "auto",
+        textAlign: 'center',
+        alignItems: 'center',
     },
     confirm: {
         backgroundColor: theme['alpha'],
@@ -71,9 +46,28 @@ export const buttons = StyleSheet.create({
         padding: 8,
         borderRadius: 6,
         margin: "auto",
-        textAlign:'center',
+        textAlign: 'center',
         alignItems: 'center',
-    },confirm_lg: {
+    },
+    confirm_form: {
+        backgroundColor: theme['alpha'],
+        width: '50%',
+        paddingHorizontal: 12,
+        marginHorizontal: 12,
+        padding: 8,
+        borderRadius: 6,
+        margin: "auto",
+        textAlign: 'center',
+        alignItems: 'center',
+    }, 
+    confirm_card: {
+        backgroundColor: theme['alpha'],
+        paddingHorizontal: 24,
+        padding: 8,
+        borderRadius: 6,
+        textAlign: 'center',
+    }, 
+    confirm_lg: {
         backgroundColor: theme['alpha'],
         paddingHorizontal: 20,
         paddingVertical: 20,
@@ -82,10 +76,11 @@ export const buttons = StyleSheet.create({
         padding: 8,
         borderRadius: 6,
         margin: "auto",
-        textAlign:'center',
+        textAlign: 'center',
         alignItems: 'center',
         fontSize: 24
-    },delete_lg: {
+    },
+     delete_lg: {
         backgroundColor: theme['gamma'],
         paddingHorizontal: 20,
         paddingVertical: 20,
@@ -94,29 +89,9 @@ export const buttons = StyleSheet.create({
         padding: 8,
         borderRadius: 6,
         margin: "auto",
-        textAlign:'center',
+        textAlign: 'center',
         alignItems: 'center',
-    },
-    add: {
-        backgroundColor: theme['alpha'],
-        padding: 15,
-        paddingHorizontal: 50,
-        borderRadius: 6,
-        marginVertical: 15,
-        margin: "auto",
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        shadowOpacity: 0.20,
-        shadowRadius: 14,
-
-        elevation: 21,
-    },
-    back: {
-
     }
+
 
 });

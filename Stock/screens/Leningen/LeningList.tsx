@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
-import { ScreenContainer } from 'react-native-screens'
 import LeningListItem from '../../components/LeningListItem';
 import Lening from '../../models/Lening';
 import { createLeningObject } from '../../utils/ObjectCreation/CreateObject';

@@ -1,11 +1,10 @@
-import { ModalPresentationIOS } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionPresets';
 import React from 'react'
 import { useEffect } from 'react';
-import { Alert, Button, View } from 'react-native';
+import { Alert, View, Text } from 'react-native';
 import TextButton from '../../components/TextButton';
 import { deleteData } from '../../utils/DataHandler'
-import Materiaal from '../../models/Materiaal'
 import { buttons } from '../../styles/components/buttons';
+import { font } from '../../styles/font';
 
 const UpdateMateriaal = ({ navigation, route }: any) => {
     const edit = () => {
@@ -57,9 +56,10 @@ const UpdateMateriaal = ({ navigation, route }: any) => {
 
     return (
         <>
-        <View style={{justifyContent: 'center', height: '100%'}}>
+        <View style={{justifyContent: 'center', height: '100%', paddingHorizontal: 20}}>
+        <Text style={font.title}>{route.params.naam}</Text>
             <TextButton style={buttons.confirm_lg} title="Ik heb meer aangekocht" onPress={() => more() } />
-            <TextButton style={buttons.confirm_lg} title="Er is iets weg." onPress={() =>  lost()} />
+            <TextButton style={buttons.confirm_lg} title="Er is iets weg" onPress={() =>  lost()} />
             <TextButton style={buttons.confirm_lg} title="Bewerken" onPress={() =>  edit() } />
             <TextButton style={buttons.delete_lg} title="Verwijderen" onPress={() =>  alertDeleteMateriaal() } />
         </View>

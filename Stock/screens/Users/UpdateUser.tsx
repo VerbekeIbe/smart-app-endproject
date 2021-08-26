@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Text, TextInput, View, Button, Alert } from 'react-native'
+import React, { useState } from 'react'
+import { Text, TextInput, View, Alert } from 'react-native'
 import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
-import IconButton from '../../components/IconButton'
 import { font } from '../../styles/font';
 import { form } from '../../styles/components/form';
 import { buttons } from '../../styles/components/buttons'
@@ -12,6 +11,27 @@ const UpdateUser = (object: any) => {
     const [name, setName] = useState(object.route.params.naam);
     const [firstName, setFirstName] = useState(object.route.params.voornaam);
     const [email, setEmail] = useState(object.route.params.email);
+
+    const validateSubmit = () => {
+        if (name == "" ||
+            firstName == "" ||
+            email == "") {
+            Alert.alert(
+                "Ongeldig",
+                "Er zijn één of meerdere velden leeg.",
+                [
+                    {
+                        text: "OK",
+
+                        style: "cancel"
+                    }
+                ]
+            );
+
+        } else {
+            submit()
+        }
+    }
 
     const submit = () => {
         const endpoint = "leners/update"
@@ -30,18 +50,18 @@ const UpdateUser = (object: any) => {
 
 
     const alertDeleteUser = () =>
-    Alert.alert(
-      "Gebruiker verwijderen",
-      "Weet je het zeker? Deze actie is onomkeerbaar.",
-      [
-        {
-          text: "Annuleren",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "Verwijderen", onPress: () => deleteUser() }
-      ]
-    );
+        Alert.alert(
+            "Gebruiker verwijderen",
+            "Weet je het zeker? Deze actie is onomkeerbaar.",
+            [
+                {
+                    text: "Annuleren",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "Verwijderen", onPress: () => deleteUser() }
+            ]
+        );
 
     const deleteUser = () => {
         const endpoint = "leners"
@@ -54,19 +74,25 @@ const UpdateUser = (object: any) => {
 
 
     return (
-        <View style={form.basic}>
-            <Text style={font.title}>Naam:</Text>
-            <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
-            <Text style={font.title}>Voornaam:</Text>
-            <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input} />
-            <Text style={font.title}>Email:</Text>
-            <TextInput keyboardType="email-address" onChangeText={text => setEmail(text)} value={email} style={form.input} />
+        <View style={{ flexDirection: 'column', paddingHorizontal: 24, paddingVertical: 48, justifyContent: 'space-between', height: '100%' }}>
 
-            <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
-
-            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
-                <TextButton title="Verwijderen" onPress={() => alertDeleteUser()} />
+            <View>
+                <Text style={font.subTitle}>Naam:</Text>
+                <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
+                <Text style={font.subTitle}>Voornaam:</Text>
+                <TextInput onChangeText={text => setFirstName(text)} value={firstName} style={form.input} />
+                <Text style={font.subTitle}>Email:</Text>
+                <TextInput keyboardType="email-address" onChangeText={text => setEmail(text)} value={email} style={form.input} />
             </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', paddingHorizontal: 24, alignItems: 'center' }}>
+
+                <TextButton style={buttons.delete_form} title="Verwijderen" onPress={() => alertDeleteUser()} />
+                <TextButton style={buttons.confirm_form} title="Opslaan" onPress={() => validateSubmit()} />
+
+            </View>
+
+
+
         </View>
     )
 }

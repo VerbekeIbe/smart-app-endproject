@@ -8,7 +8,6 @@ import {theme, neutral} from '../../styles/colors'
 import BoughtMateriaal from './BoughtMateriaal';
 import LostMateriaal from './LostMateriaal';
 import UpdateMateriaal from './UpdateMateriaal';
-import { Alert, Button } from 'react-native';
 
 
 

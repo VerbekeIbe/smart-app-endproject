@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Text, TextInput } from 'react-native'
+import { Alert, Text, TextInput, View } from 'react-native'
 import TextButton from '../../components/TextButton';
+import { buttons } from '../../styles/components/buttons';
+import { form } from '../../styles/components/form';
+import { font } from '../../styles/font';
 import { postData } from '../../utils/DataHandler';
 
 const BoughtMateriaal = ({ route, navigation }: any) => {
@@ -28,14 +31,40 @@ const BoughtMateriaal = ({ route, navigation }: any) => {
         navigation.navigate("Materiaal List");
     }
 
-    return (
-         <><Text>Hoeveel is er bijgekocht?</Text>
-        
-        <TextInput keyboardType="numeric" onChangeText={text => setMore(text.replace(/[^0-9]/g, ''))} value={more}/>
+    const handleSubmit = () => {
+        if(Number(more) > 0){
+            submitGained()
+        }else {
+            Alert.alert(
+                "Ongeldig",
+                "Voer een geldige waarde in.",
+                [
+                    {
+                        text: "OK",
+                        
+                        style: "cancel"
+                    }
+                ]
+            );
+        }
+    }
 
-            <TextButton title="Opslaan" onPress={() => submitGained()}/>
-            
-            </>
+    return (
+        <>
+            <View style={{flexDirection: 'column', paddingHorizontal: 24, paddingVertical: 48, justifyContent:'space-between', height:'100%'}}>
+                <View>
+                    <Text style={font.title}>{route.params.naam}</Text>
+                    <Text style={font.subTitle}>Hoeveel is er bijgekocht?</Text>
+
+                    <TextInput style={form.input} keyboardType="numeric" onChangeText={text => setMore(text.replace(/[^0-9]/g, ''))} value={more} />
+                </View>
+                <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'center'}}>
+                    <TextButton style={buttons.confirm_lg} title="Opslaan" onPress={() => handleSubmit()} />
+                </View>
+            </View>
+
+
+        </>
     )
 }
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import {neutral, theme} from "./colors";
+import { neutral } from "./colors";
 
 export const font = StyleSheet.create({
     normal: {
@@ -14,15 +14,11 @@ export const font = StyleSheet.create({
         color: neutral[900],
         marginBottom: 15
     },
-    selectedItem: {
+    subTitle: {
         fontSize: 20,
-        fontWeight: "bold",
+        fontWeight: '400',
         color: neutral[900],
-        marginBottom: 30
-    },
-    listTitle: {
-        fontSize: 18,
-        fontWeight: "bold",
+        marginBottom: 15
     },
     digit: {
         fontSize: 26,

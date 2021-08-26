@@ -3,7 +3,6 @@ import { Text, TextInput, View, Alert } from 'react-native'
 import { Picker } from '@react-native-picker/picker';
 import { postData, deleteData } from '../../utils/DataHandler'
 import TextButton from '../../components/TextButton'
-import IconButton from '../../components/IconButton'
 
 import { font } from '../../styles/font';
 import { buttons } from '../../styles/components/buttons';
@@ -15,7 +14,7 @@ const EditMateriaal = ({ route, navigation }: any) => {
     const [threshold, setThreshold] = useState(route.params.drempel);
     const [stock, setStock] = useState(route.params.stock);
     const [categorie, setCategorie] = useState(route.params.categorie);
-    const [validated, setValidated] = useState<boolean>(false);
+
 
     useEffect(() => {
         console.log("navigation")
@@ -28,10 +27,19 @@ const EditMateriaal = ({ route, navigation }: any) => {
         if (name == "" ||
             threshold == "" ||
             stock == "") {
-            setValidated(false);
+            Alert.alert(
+                "Ongeldig",
+                "Er zijn één of meerdere velden leeg.",
+                [
+                    {
+                        text: "OK",
+
+                        style: "cancel"
+                    }
+                ]
+            );
 
         } else {
-            setValidated(true)
             submit()
         }
     }
@@ -82,33 +90,38 @@ const EditMateriaal = ({ route, navigation }: any) => {
 
     return (
         <>
-            <View style={form.basic}>
-                <Text style={font.title}>Naam:</Text>
-                <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
-                <Text style={font.title}>Categorie:</Text>
-                <Picker
-                    selectedValue={categorie}
-                    onValueChange={itemValue => setCategorie(itemValue)}
-                    style={form.input}
-                >
+            <View style={{ flexDirection: 'column', paddingHorizontal: 24, paddingVertical: 48, justifyContent: 'space-between', height: '100%' }}>
 
-                    <Picker.Item label="Groot" value="Groot" />
-                    <Picker.Item label="Klein" value="Klein" />
-                    <Picker.Item label="Bar" value="Bar" />
-                    <Picker.Item label="Keuken" value="Keuken" />
-                </Picker>
-                <Text style={font.title}>Hoeveelheid:</Text>
-                <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock.toString()} style={form.input} />
+                <View>
+                    <Text style={font.subTitle}>Naam:</Text>
+                    <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
+                    <Text style={font.subTitle}>Categorie:</Text>
+                    <Picker
+                        selectedValue={categorie}
+                        onValueChange={itemValue => setCategorie(itemValue)}
+                        style={form.input}
+                    >
 
-                <Text style={font.title}>Drempel:</Text>
-                <TextInput keyboardType="numeric" onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold.toString()} style={form.input} />
+                        <Picker.Item label="Groot" value="Groot" />
+                        <Picker.Item label="Klein" value="Klein" />
+                        <Picker.Item label="Bar" value="Bar" />
+                        <Picker.Item label="Keuken" value="Keuken" />
+                    </Picker>
+                    <Text style={font.subTitle}>Hoeveelheid:</Text>
+                    <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock.toString()} style={form.input} />
 
-
-                <IconButton onPress={() => validateSubmit()} iconName="check" size="600" color="white" style={buttons.submit} />
-
-                <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
-                    <TextButton title="Verwijderen" onPress={() => alertDeleteMateriaal()} />
+                    <Text style={font.subTitle}>Drempel:</Text>
+                    <TextInput keyboardType="numeric" onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold.toString()} style={form.input} />
                 </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'center', paddingHorizontal: 24, alignItems: 'center' }}>
+
+                    <TextButton style={buttons.delete_form} title="Verwijderen" onPress={() => alertDeleteMateriaal()} />
+                    <TextButton style={buttons.confirm_form} title="Opslaan" onPress={() => validateSubmit()} />
+                </View>
+
+
+
             </View>
         </>
     )

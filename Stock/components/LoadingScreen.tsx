@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { loading } from '../styles/utils/loading';
-import {neutral, theme} from '../styles/colors'
+import { theme } from '../styles/colors'
 
 
 const Loading = () => {

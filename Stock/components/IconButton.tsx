@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 
 const IconButton = ({onPress, iconName, style, size, color}: any) => {

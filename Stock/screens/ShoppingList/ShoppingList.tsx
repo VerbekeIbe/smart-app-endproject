@@ -1,12 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback } from 'react'
 import { ScrollView, Text, View } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import ShoppingListItem from '../../components/ShoppingListItem';
 import Materiaal from '../../models/Materiaal';
-import { getData, getShoppingList } from '../../utils/DataHandler';
+import { getShoppingList } from '../../utils/DataHandler';
 import { createMateriaalObject } from '../../utils/ObjectCreation/CreateObject';
 import LoadingScreen from '../../components/LoadingScreen';
-import { font } from '../../styles/font';
 
 const ShoppingList = ({navigation}: any) => {
     const [loading, setLoading] = useState<boolean>(false);

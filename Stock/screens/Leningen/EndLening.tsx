@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { View } from 'react-native';
 import TextButton from '../../components/TextButton'
 import { buttons } from '../../styles/components/buttons';
@@ -37,8 +37,8 @@ const EndLening = ({ route, navigation }: any) => {
     return (
         <>
         <View style={{justifyContent: 'center', height: '100%'}}>
-            <TextButton style={buttons.confirm_lg} title="Alles is teruggebracht" onPress={() => closeLening()} />
-            <TextButton style={buttons.confirm_lg} title="Er is iets weg." onPress={() => editMateriaal()} />
+            <TextButton style={buttons.confirm_lg} title="Alles is terug" onPress={() => closeLening()} />
+            <TextButton style={buttons.confirm_lg} title="Er is iets weg" onPress={() => editMateriaal()} />
         </View>
         </>
     )

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { ActivityIndicator, View, Text, RecyclerViewBackedScrollViewBase, Button, ScrollView } from 'react-native'
+import {  View, Text, ScrollView } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import UserListItem from '../../components/UserListItem'
 import Lener from '../../models/Lener'
@@ -58,7 +58,7 @@ const UserList = ({ navigation }: any) => {
                     <UserListItem key={l.lenerId} object={l} navigation={navigation} />
                 ))}
 
-                <TextButton title="Gebruiker Toevoegen" onPress={() => { navigation.navigate('Add User') }} style={buttons.add} />
+                <TextButton title="Toevoegen" onPress={() => { navigation.navigate('Add User') }} style={buttons.confirm_lg} />
             </View>
         </ScrollView>
     );

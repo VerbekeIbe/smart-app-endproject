@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { Text, ScrollView, View, Button } from 'react-native'
+import { Text, ScrollView, View} from 'react-native'
 import MateriaalListItem from '../../components/MateriaalListItem';
 import Materiaal from '../../models/Materiaal';
 import { Picker } from '@react-native-picker/picker';
@@ -8,7 +8,6 @@ import { createMateriaalObject } from '../../utils/ObjectCreation/CreateObject';
 import { getData } from '../../utils/DataHandler'
 import { useFocusEffect } from '@react-navigation/native'
 import TextButton from '../../components/TextButton'
-import IconButton from '../../components/IconButton'
 
 import { font } from '../../styles/font';
 import { buttons } from '../../styles/components/buttons';
@@ -60,18 +59,20 @@ const MateriaalList = ({ navigation }: any) => {
     )
     else return (
         <ScrollView>
-            
+
             <Picker
             selectedValue={selectedData}
             onValueChange={itemValue => setSelectedData(itemValue.toString())}
+            style={{paddingHorizontal: 48, borderColor: 'red'}}
             >
-                <Picker.Item key={"All"} label={"All"} value={"All"} />
+                <Picker.Item key={"All"} label={"Alles"} value={"All"} />
                 <Picker.Item key={"Groot"} label={"Groot"} value={"Groot"} />
                 <Picker.Item key={"Klein"} label={"Klein"} value={"Klein"} />
                 <Picker.Item key={"Bar"} label={"Bar"} value={"Bar"} />
                 <Picker.Item key={"Keuken"} label={"Keuken"} value={"Keuken"} />
                 
             </Picker>
+
             <View>
                 {data.map((l: Materiaal) => (
                     <MateriaalListItem key={l.materiaalId} object={l} navigation={navigation} />

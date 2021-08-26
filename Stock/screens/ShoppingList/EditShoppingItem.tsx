@@ -1,4 +1,3 @@
-import { CommonActions } from '@react-navigation/native';
 import React from 'react'
 import { useEffect } from 'react';
 import { View } from 'react-native';

@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
-import {neutral, theme} from "../colors";
+import {neutral} from "../colors";
 
 export const list = StyleSheet.create({
     card: {
         marginHorizontal: 20,
         marginVertical: 10,
-        padding: 10,
-        paddingVertical: 5,
-        borderRadius: 6,
+        paddingHorizontal:20,
+        paddingVertical: 15,
+        borderRadius: 5,
         backgroundColor: neutral[100],
 
         shadowColor: "#000",

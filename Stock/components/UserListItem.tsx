@@ -1,8 +1,5 @@
-import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import { Text, Button, View } from 'react-native'
-import Lener from '../models/Lener'
-import UpdateUser from '../screens/Users/UpdateUser'
+import { Text, View } from 'react-native'
 import IconButton from '../components/IconButton'
 
 import { font } from '../styles/font';
@@ -18,12 +15,18 @@ const UserListItem = ({ object, navigation }: any) => {
 
     return (
         <View style={list.card}>
-            <View style={{ flexDirection: "row", justifyContent: 'space-around' }}>
-                <View style={{ maxWidth: 210 }}>
+            <View style={{flexDirection:"row", justifyContent:'space-between'}}>
+
+            <View style={{maxWidth: 200, flexDirection:'column', justifyContent:'flex-end'}}>
+                <View>
                     <Text style={font.title}>{object.voornaam} {object.naam}</Text>
                     <Text numberOfLines={1} style={font.normal}>{object.email}</Text>
                 </View>
-                <IconButton onPress={() => { edit(object) }} iconName="edit" size="48" color="white" style={buttons.edit} />
+               
+            </View>
+            <View style={{flexDirection: 'column', justifyContent:'center', alignItems:'center'}} >
+                    <IconButton onPress={() => { edit(object) }} iconName="edit" size="48" color="white" style={buttons.edit} />
+                </View>
             </View>
         </View>
 
