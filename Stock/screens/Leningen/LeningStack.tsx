@@ -11,21 +11,19 @@ export default function LeningStack({ navigation }: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Lening List' component={LeningList} options={{
-        title: 'Leningen', cardStyle: { backgroundColor:  neutral[300] }, headerStyle:
+        title: 'Leningen', cardStyle: { backgroundColor:  neutral[300] }, headerTitleAlign: 'center', headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor:  neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='End Lening' component={EndLening} options={{
-        title: 'Terugbrengen', cardStyle: { backgroundColor:  neutral[300] }, headerStyle:
+        title: 'Terugbrengen', cardStyle: { backgroundColor:  neutral[300] },headerTitleAlign: 'center',headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor:  neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
 

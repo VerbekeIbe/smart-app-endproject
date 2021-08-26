@@ -19,67 +19,61 @@ export default function MateriaalStack({ navigation }: any) {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Materiaal List' component={MateriaalList} options={{
-        title: 'Materiaal', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal', cardStyle: { backgroundColor: neutral[300] }, headerTitleAlign: 'center', 
+        headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='Update Materiaal' component={UpdateMateriaal} options={{
-        title: 'Materiaal bewerken', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal bewerken', cardStyle: { backgroundColor: neutral[300] }, headerTitleAlign: 'center', headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='Edit Materiaal' component={EditMateriaal} options={{
-        title: 'Materiaal bewerken', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal bewerken', cardStyle: { backgroundColor: neutral[300] },headerTitleAlign: 'center', headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='Bought Materiaal' component={BoughtMateriaal} options={{
-        title: 'Materiaal gekocht', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal gekocht', cardStyle: { backgroundColor: neutral[300] },headerTitleAlign: 'center', headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='Lost Materiaal' component={LostMateriaal} options={{
-        title: 'Materiaal weg', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal weg', cardStyle: { backgroundColor: neutral[300] }, headerTitleAlign: 'center', headerStyle:
           { backgroundColor: theme['alpha']},
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
 
       <Stack.Screen name='Add Materiaal' component={AddMateriaal} options={{
-        title: 'Materiaal toevoegen', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal toevoegen', cardStyle: { backgroundColor: neutral[300] }, headerTitleAlign: 'center',headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
       <Stack.Screen name='Start Lening' component={StartLening} options={{
-        title: 'Materiaal lenen', cardStyle: { backgroundColor: neutral[300] }, headerStyle:
+        title: 'Materiaal lenen', cardStyle: { backgroundColor: neutral[300] }, headerTitleAlign: 'center',headerStyle:
           { backgroundColor: theme['alpha'] },
         headerTintColor: neutral[100],
         headerTitleStyle: {
           fontWeight: '600',
-          alignSelf: 'center'
         }
       }} />
     </Stack.Navigator>
