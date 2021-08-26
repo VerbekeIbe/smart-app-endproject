@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { Text, ScrollView, View, Button } from 'react-native'
 import MateriaalListItem from '../../components/MateriaalListItem';
 import Materiaal from '../../models/Materiaal';
+import { Picker } from '@react-native-picker/picker';
 import LoadingScreen from '../../components/LoadingScreen'
 import { createMateriaalObject } from '../../utils/ObjectCreation/CreateObject';
 import { getData } from '../../utils/DataHandler'
@@ -15,11 +16,11 @@ import { buttons } from '../../styles/components/buttons';
 
 
 
+
 const MateriaalList = ({ navigation }: any) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Materiaal[]>([]);
-
-
+    const [selectedData, setSelectedData] = useState("All")
 
     const getList = async function (categorie: string) {
         const endpoint = "materiaal"
@@ -31,10 +32,7 @@ const MateriaalList = ({ navigation }: any) => {
         }
         setData(materiaalList);
         setLoading(false);
-
     };
-
-
 
     useFocusEffect(
         useCallback(() => {
@@ -43,6 +41,13 @@ const MateriaalList = ({ navigation }: any) => {
         }, [])
     );
 
+    useEffect(() => {
+        if(selectedData == "All"){
+            getList("")
+        }else{
+            getList(selectedData)
+        }
+    },[selectedData])
 
     if (loading) return (
         <LoadingScreen />
@@ -55,19 +60,23 @@ const MateriaalList = ({ navigation }: any) => {
     )
     else return (
         <ScrollView>
-            {/* <TextButton title="+" onPress={() => navigation.navigate("Add Materiaal")} /> */}
-            <View style={{ flexDirection: "row", margin: "auto", justifyContent: "space-evenly" }}>
-                <TextButton title="All" onPress={() => getList("")} style={buttons.filter} />
-                <TextButton title="Groot" onPress={() => getList("Groot")} style={buttons.filter} />
-                <TextButton title="Klein" onPress={() => getList("Klein")} style={buttons.filter} />
-                <TextButton title="Bar" onPress={() => getList("Bar")} style={buttons.filter} />
-                <TextButton title="Keuken" onPress={() => getList("Keuken")} style={buttons.filter} />
-            </View>
+            
+            <Picker
+            selectedValue={selectedData}
+            onValueChange={itemValue => setSelectedData(itemValue.toString())}
+            >
+                <Picker.Item key={"All"} label={"All"} value={"All"} />
+                <Picker.Item key={"Groot"} label={"Groot"} value={"Groot"} />
+                <Picker.Item key={"Klein"} label={"Klein"} value={"Klein"} />
+                <Picker.Item key={"Bar"} label={"Bar"} value={"Bar"} />
+                <Picker.Item key={"Keuken"} label={"Keuken"} value={"Keuken"} />
+                
+            </Picker>
             <View>
                 {data.map((l: Materiaal) => (
                     <MateriaalListItem key={l.materiaalId} object={l} navigation={navigation} />
                 ))}
-                <TextButton title="Materiaal Toevoegen" onPress={() => navigation.navigate("Add Materiaal")} style={buttons.add} />
+                <TextButton title="Materiaal Toevoegen" onPress={() => navigation.navigate("Add Materiaal")} style={buttons.confirm_lg} />
             </View>
         </ScrollView>
 

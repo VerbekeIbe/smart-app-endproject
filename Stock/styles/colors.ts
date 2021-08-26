@@ -1,11 +1,17 @@
-export default {
-    headerbg: '#0168B3',
+import { StyleSheet } from 'react-native';
 
-    alpha: '#288BD4',
-    beta: '#FA5A0C',
-    dark:'#2e0101',
-    light:'#FCFCFC',
-    listbg: '#F6F6F6',
+export const neutral = {
+  100 : '#FFFDFD',
+  300 : '#F1EEEE',
+  500 : '#DCDCDC',
+  700: '#C8C5C5',
+  900: '#707070'
+};
 
-    delete: '#D10B0B'
+export const theme = {
+  alpha: '#0067B2',
+  beta: '#EE4E00',
+  gamma: '#E60000'
 }
+
+

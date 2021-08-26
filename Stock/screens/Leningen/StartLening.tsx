@@ -84,8 +84,8 @@ export default function StartLening(object: any) {
                 {toLend}
             </Text>
 
-                <IconButton onPress={() => submit()} iconName="check" size="48" color="white" style={buttons.submit} />
-                <TextButton title="Terug" onPress={() => object.navigation.navigate('Materiaal List')} style={buttons.back} />
+                
+                <TextButton title="Bevestigen"onPress={() => submit()} style={buttons.confirm} />
         </View>
             )
 }

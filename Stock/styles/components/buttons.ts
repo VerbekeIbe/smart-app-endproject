@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import colors from "../colors";
+import {neutral, theme} from "../colors";
 
 export const buttons = StyleSheet.create({
-    neutral: {
-        backgroundColor: colors.beta,
+    edit: {
+        backgroundColor: theme['beta'],
         padding: 7,
         borderRadius: 6,
         height: 40,
@@ -20,7 +20,7 @@ export const buttons = StyleSheet.create({
         elevation: 21,
 
     }, filter: {
-        backgroundColor: colors.beta,
+        backgroundColor: theme['beta'],
         padding: 10,
         borderRadius: 25,
         marginVertical: 10,
@@ -37,13 +37,13 @@ export const buttons = StyleSheet.create({
         elevation: 21,
     },
     delete: {
-        backgroundColor: colors.delete,
+        backgroundColor: theme['gamma'],
         padding: 7,
         borderRadius: 6,
         margin: "auto"
     },
     submit: {
-        backgroundColor: colors.headerbg,
+        backgroundColor: theme['alpha'],
         paddingHorizontal: 80,
         paddingVertical: 20,
 
@@ -64,16 +64,41 @@ export const buttons = StyleSheet.create({
 
         elevation: 21,
     },
-    alternative: {
-        backgroundColor: colors.headerbg,
+    confirm: {
+        backgroundColor: theme['alpha'],
         paddingHorizontal: 12,
         marginHorizontal: 25,
         padding: 8,
         borderRadius: 6,
-        margin: "auto"
+        margin: "auto",
+        textAlign:'center',
+        alignItems: 'center',
+    },confirm_lg: {
+        backgroundColor: theme['alpha'],
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        marginHorizontal: 25,
+        marginVertical: 20,
+        padding: 8,
+        borderRadius: 6,
+        margin: "auto",
+        textAlign:'center',
+        alignItems: 'center',
+        fontSize: 24
+    },delete_lg: {
+        backgroundColor: theme['gamma'],
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        marginHorizontal: 25,
+        marginVertical: 20,
+        padding: 8,
+        borderRadius: 6,
+        margin: "auto",
+        textAlign:'center',
+        alignItems: 'center',
     },
     add: {
-        backgroundColor: colors.headerbg,
+        backgroundColor: theme['alpha'],
         padding: 15,
         paddingHorizontal: 50,
         borderRadius: 6,

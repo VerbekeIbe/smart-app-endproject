@@ -8,7 +8,7 @@ import { createMateriaalObject } from '../../utils/ObjectCreation/CreateObject';
 import LoadingScreen from '../../components/LoadingScreen';
 import { font } from '../../styles/font';
 
-export default function ShoppingList({navigation}: any) {
+const ShoppingList = ({navigation}: any) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Materiaal[]>([]);
 
@@ -51,12 +51,17 @@ export default function ShoppingList({navigation}: any) {
         </View>
     )
     else return (
+        <>
         <ScrollView>
-            <View style={{ marginTop: 20 }}>
+            
                 {data.map((l: Materiaal) => (
                     <ShoppingListItem key={l.materiaalId} object={l} navigation={navigation} />
                 ))}
-            </View>
+           
         </ScrollView>
+        </>
     )
+   
 }
+
+export default ShoppingList;

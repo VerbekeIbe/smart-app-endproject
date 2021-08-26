@@ -17,17 +17,13 @@ const UserListItem = ({ object, navigation }: any) => {
 
 
     return (
-        <View style={list.listItem}>
+        <View style={list.card}>
             <View style={{ flexDirection: "row", justifyContent: 'space-around' }}>
-                <View>
-                    <Text style={font.listTitle}>Naam:</Text>
-                    <Text style={font.listTitle}>Email:</Text>
-                </View>
                 <View style={{ maxWidth: 210 }}>
-                    <Text style={font.normal}>{object.voornaam} {object.naam}</Text>
+                    <Text style={font.title}>{object.voornaam} {object.naam}</Text>
                     <Text numberOfLines={1} style={font.normal}>{object.email}</Text>
                 </View>
-                <IconButton onPress={() => { edit(object) }} iconName="edit" size="48" color="white" style={buttons.neutral} />
+                <IconButton onPress={() => { edit(object) }} iconName="edit" size="48" color="white" style={buttons.edit} />
             </View>
         </View>
 

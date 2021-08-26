@@ -26,20 +26,17 @@ const LeningListItem = ({ object, navigation }: any) => {
     }
 
     return (
-        <View style={list.listItem}>
+        <View style={list.card}>
             <View style={{flexDirection:"row", justifyContent:'space-between'}}>
-                <View>
-            <Text style={font.listTitle}>Materiaal:</Text>
-            <Text style={font.listTitle}>Hoeveelheid:</Text>
-            <Text style={font.listTitle}>Naam:</Text>
-            </View>
             <View>
-            <Text style={font.normal}>{object.materiaal.naam}</Text>
-            <Text style={font.normal}>{object.hoeveelheid}</Text>
+            <Text style={font.title}>{object.materiaal.naam}</Text>
             <Text style={font.normal}>{object.lener.voornaam} {object.lener.naam}</Text>
+            <Text style={font.digit}>{object.hoeveelheid}</Text>
+
             </View>
-            <View>
-            <IconButton onPress={() => endLening()} iconName="assignment-returned" size="48" color="white" style={buttons.neutral} />
+            <View style={{ justifyContent:'flex-end'}}>
+            <TextButton title="Terugbrengen" onPress={() => endLening()} style={buttons.confirm}/>
+            
             </View>
             </View>
 

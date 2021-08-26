@@ -6,7 +6,8 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
 
-import colors from './styles/colors'
+import { theme, neutral } from './styles/colors'
+
 
 
 
@@ -44,15 +45,17 @@ export default function App() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: colors.beta,
-          inactiveTintColor: colors.light, 
-          style: {backgroundColor: colors.headerbg}
+          activeTintColor: neutral[100],
+          inactiveTintColor: neutral[700], 
+          style: {backgroundColor: theme['alpha']},
+          showLabel: false
         }}
       >
-        <Tabs.Screen name="Materiaal" component={MateriaalStack}/>
-        <Tabs.Screen name="Users" component={UserStack} options={{ title: 'Gebruikers' }}/>
+        <Tabs.Screen name="Materiaal" component={MateriaalStack} />
         <Tabs.Screen name="Leningen" component={LeningStack}/>
         <Tabs.Screen name="Shopping List" component={ShoppingStack} options={{ title: 'Boodschappen' }}/>
+        <Tabs.Screen name="Users" component={UserStack} options={{ title: 'Gebruikers' }}/>
+        
       </Tabs.Navigator>  
        </NavigationContainer>
   )

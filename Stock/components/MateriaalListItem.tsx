@@ -20,21 +20,20 @@ const lenen = (data: any) => {
 }
 
     return (
-        <View style={list.listItem}>
+        <View style={list.card}>
             <View style={info.materiaal}>
                 <View style={{flexDirection:"row", justifyContent:'space-between'}}>
-                <View>
-                    <Text style={font.listTitle}>Naam:</Text>
-                    <Text style={font.listTitle}>Hoeveelheid:</Text>
-                    <Text style={font.listTitle}>Categorie:</Text>
-                </View>
+                
                 <View style={{maxWidth: 150}} >
-                <Text numberOfLines={1} style={font.normal}>{object.naam}</Text>
-                <Text style={font.normal}>{object.stock}</Text>
+                <Text numberOfLines={1} style={font.title}>{object.naam}</Text>
                 <Text style={font.normal}>{object.categorie}</Text>
+                <Text style={font.digit}>{object.stock}</Text>
                 </View>
-                <View>
-                <IconButton  onPress={() => {update(object)}} iconName="edit" size="25" color="white" style={buttons.neutral}/>
+                
+                
+                <View style={{justifyContent:'space-between'}} >
+                <IconButton  onPress={() => {update(object)}} iconName="edit" size="25" color="white" style={buttons.edit}/>
+                <TextButton title="Lenen" onPress={() => {lenen(object)}} style={buttons.confirm}/>
                 </View>
                 </View>
             </View>
@@ -43,7 +42,7 @@ const lenen = (data: any) => {
             {/* <Button title="Edit" onPress={() => {edit(object)}} /> */}
             <View style={{ flexDirection:"row", margin:"auto", padding:2, justifyContent:"space-evenly"}}>
             
-            <TextButton title="Lenen" onPress={() => {lenen(object)}} style={buttons.alternative}/>
+            
             </View>
         </View>
         

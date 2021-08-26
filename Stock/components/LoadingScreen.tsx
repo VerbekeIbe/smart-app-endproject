@@ -1,13 +1,13 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { loading } from '../styles/utils/loading';
-import colors from '../styles/colors'
+import {neutral, theme} from '../styles/colors'
 
 
 const Loading = () => {
   return (
     <View style={loading.neutral}>
-      <ActivityIndicator size="large" color={colors.light} />
+      <ActivityIndicator size="large" color={theme['alpha']} />
     </View>
   )
 }

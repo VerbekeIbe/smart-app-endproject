@@ -10,11 +10,12 @@ import { buttons } from '../../styles/components/buttons';
 import { form } from '../../styles/components/form';
 
 
-const EditMateriaal = ({route, navigation} : any) => {
+const EditMateriaal = ({ route, navigation }: any) => {
     const [name, setName] = useState(route.params.naam);
     const [threshold, setThreshold] = useState(route.params.drempel);
     const [stock, setStock] = useState(route.params.stock);
     const [categorie, setCategorie] = useState(route.params.categorie);
+    const [validated, setValidated] = useState<boolean>(false);
 
     useEffect(() => {
         console.log("navigation")
@@ -23,7 +24,20 @@ const EditMateriaal = ({route, navigation} : any) => {
         console.log(route)
     }, [])
 
+    const validateSubmit = () => {
+        if (name == "" ||
+            threshold == "" ||
+            stock == "") {
+            setValidated(false);
+
+        } else {
+            setValidated(true)
+            submit()
+        }
+    }
+
     const submit = () => {
+
         const endpoint = "materiaal/update"
         const requestBody = {
             materiaalId: route.params.materiaalId,
@@ -38,21 +52,23 @@ const EditMateriaal = ({route, navigation} : any) => {
         postData({ endpoint, requestBody })
 
         navigation.navigate("Materiaal List");
+
+
     };
 
     const alertDeleteMateriaal = () =>
-    Alert.alert(
-      "Materiaal verwijderen",
-      "Weet je het zeker? Deze actie is onomkeerbaar.",
-      [
-        {
-          text: "Annuleren",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "Verwijderen", onPress: () => deleteMateriaal() }
-      ]
-    );
+        Alert.alert(
+            "Materiaal verwijderen",
+            "Weet je het zeker? Deze actie is onomkeerbaar.",
+            [
+                {
+                    text: "Annuleren",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "Verwijderen", onPress: () => deleteMateriaal() }
+            ]
+        );
 
     const deleteMateriaal = () => {
         const endpoint = "materiaal"
@@ -66,34 +82,34 @@ const EditMateriaal = ({route, navigation} : any) => {
 
     return (
         <>
-        <View style={form.basic}>
-            <Text style={font.title}>Naam:</Text>
-            <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
-            <Text style={font.title}>Categorie:</Text>
-            <Picker
-                selectedValue={categorie}
-                onValueChange={itemValue => setCategorie(itemValue)}
-                style={form.input}
-            >
+            <View style={form.basic}>
+                <Text style={font.title}>Naam:</Text>
+                <TextInput onChangeText={text => setName(text)} value={name} style={form.input} />
+                <Text style={font.title}>Categorie:</Text>
+                <Picker
+                    selectedValue={categorie}
+                    onValueChange={itemValue => setCategorie(itemValue)}
+                    style={form.input}
+                >
 
-                <Picker.Item label="Groot" value="Groot" />
-                <Picker.Item label="Klein" value="Klein" />
-                <Picker.Item label="Bar" value="Bar" />
-                <Picker.Item label="Keuken" value="Keuken" />
-            </Picker>
-            <Text style={font.title}>Hoeveelheid:</Text>
-            <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock.toString()} style={form.input} />
+                    <Picker.Item label="Groot" value="Groot" />
+                    <Picker.Item label="Klein" value="Klein" />
+                    <Picker.Item label="Bar" value="Bar" />
+                    <Picker.Item label="Keuken" value="Keuken" />
+                </Picker>
+                <Text style={font.title}>Hoeveelheid:</Text>
+                <TextInput keyboardType="numeric" onChangeText={text => setStock(text.replace(/[^0-9]/g, ''))} value={stock.toString()} style={form.input} />
 
-            <Text style={font.title}>Drempel:</Text>
-            <TextInput keyboardType="numeric" onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold.toString()} style={form.input} />
+                <Text style={font.title}>Drempel:</Text>
+                <TextInput keyboardType="numeric" onChangeText={text => setThreshold(text.replace(/[^0-9]/g, ''))} value={threshold.toString()} style={form.input} />
 
 
-            <IconButton onPress={() => submit()} iconName="check" size="600" color="white" style={buttons.submit} />
+                <IconButton onPress={() => validateSubmit()} iconName="check" size="600" color="white" style={buttons.submit} />
 
-            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
-                <TextButton title="Verwijderen" onPress={() => alertDeleteMateriaal()} />
+                <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+                    <TextButton title="Verwijderen" onPress={() => alertDeleteMateriaal()} />
+                </View>
             </View>
-        </View>
         </>
     )
 }

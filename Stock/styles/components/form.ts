@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import colors from "../colors";
+import { neutral, theme } from "../colors";
 
 export const form = StyleSheet.create({
     basic: {
@@ -17,6 +17,6 @@ export const form = StyleSheet.create({
         height: 40,
         borderRadius: 5,
         padding: 10,
-        backgroundColor: colors.listbg
+        backgroundColor: neutral[300]
     }
 });

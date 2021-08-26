@@ -14,22 +14,23 @@ const ShoppingListItem = ({ object, navigation }: any) => {
 
 
     return (
-        <View style={list.listItem}>
+        <View style={list.card}>
 
-            <View style={{ flexDirection: "row", justifyContent: 'stretch' }}>
-                <View style={{ marginRight: 50 }}>
-                    <Text style={font.listTitle}>Naam:</Text>
-                    <Text style={font.listTitle}>Categorie:</Text>
-                    <Text style={font.listTitle}>Stock:</Text>
-                    <Text style={font.listTitle}>Drempel:</Text>
-                </View>
+            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
                 <View>
-                    <Text style={font.normal}>{object.naam}</Text>
+                <Text numberOfLines={1} style={font.title}>{object.naam}</Text>
                     <Text style={font.normal}>{object.categorie}</Text>
-                    <Text style={font.normal}>{object.stock}</Text>
+                
+                <View style={{flexDirection: "row",}}>
+                    <Text style={font.normal}>Drempel: </Text>
                     <Text style={font.normal}>{object.drempel}</Text>
+                </View>
+                </View>
+                <View style={{flexDirection: "column", justifyContent:'space-between'}}>
+                    
+                    <Text style={font.digit}>{object.stock}</Text>
 
-                    <IconButton onPress={() => editShoppingItem()} iconName="edit" size="25" color="white" style={buttons.neutral} navigation={navigation} />
+                    <IconButton onPress={() => editShoppingItem()} iconName="keyboard-arrow-right" size="25" color="white" style={buttons.edit} navigation={navigation} />
                 </View>
             </View>
         </View>
